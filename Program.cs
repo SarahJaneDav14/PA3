@@ -867,5 +867,92 @@ static void CrossStitch(ref int coins)
     Select which coin category you'd like to play.
     The amount of money will correspond to the difficulty of the question. 
     Select either 1, 2, 3, 4, or 5");
-    int csChouce = int.Parse(Console.ReadLine());
+    int csChoice = int.Parse(Console.ReadLine());
+    DisplayCrossStitchQuestion(csChoice, ref coins)
+}
+
+static void DisplayCrossStitchQuestion(int csChoice, ref int coins)
+{
+    string answer;
+    bool isRight = false; 
+    if (csChoice == 1)
+    {
+        System.Console.WriteLine("What shape does a basic cross stitch create?");
+        answer = Console.ReadLine().ToUpper();
+        isRight = (answer == "X");
+        if (isRight == true)
+        {
+            coins += 1;
+            System.Console.WriteLine($"Correct! You now have {coins} coins!");
+        }
+        else
+        {
+            coins = coins;
+            System.Console.WriteLine("Wrong.");
+        }
+    }
+    else if (csChoice == 2)
+    {
+        System.Console.WriteLine("Which type of fabric is most commonly used for cross stitch?");
+        answer = Console.ReadLine().ToUpper();
+        isRight = (answer == "AIDA CLOTH");
+        if (isRight == true)
+        {
+            coins += 2;
+            System.Console.WriteLine($"Correct! You now have {coins} coins!");
+        }
+        else
+        {
+            coins = coins;
+            System.Console.WriteLine("Wrong.");
+        }
+    }
+    else if (csChoice == 3)
+    {
+        System.Console.WriteLine("In cross stitch patterns, what does a symbol or color in a grid square usually represent?");
+        answer = Console.ReadLine().ToUpper();
+        isRight = (answer == "THREAD COLOR");
+        if (isRight == true)
+        {
+            coins += 3;
+            System.Console.WriteLine($"Correct! You now have {coins} coins!");
+        }
+        else
+        {
+            coins = coins;
+            System.Console.WriteLine("Wrong.");
+        }
+    }
+    else if (csChoice == 4)
+    {
+        System.Console.WriteLine("Which historical purpose did cross stitch samplers often serve?");
+        answer = Console.ReadLine().ToUpper();
+        isRight = (answer == "DEMONSTRATE SKILL");
+        if (isRight == true)
+        {
+            coins += 4;
+            System.Console.WriteLine($"Correct! You now have {coins} coins!");
+        }
+        else
+        {
+            coins = coins;
+            System.Console.WriteLine("Wrong.");
+        }
+    }
+    else if (csChoice == 5)
+    {
+        System.Console.WriteLine("If a pattern calls for “2 over 2” stitching on linen, what does that mean?");
+        answer = Console.ReadLine().ToUpper();
+        isRight = (answer == "TWO STRANDS");
+        if (isRight == true)
+        {
+            coins += 5;
+            System.Console.WriteLine($"Correct! You now have {coins} coins!");
+        }
+        else
+        {
+            coins = coins;
+            System.Console.WriteLine("Wrong.");
+        }
+    }
 }
