@@ -666,6 +666,93 @@ static void RomanCulture(ref int coins)
     The amount of money will correspond to the difficulty of the question. 
     Select either 1, 2, 3, 4, or 5");
     int rcChoice = int.Parse(Console.ReadLine());
+    DisplayRomanCultureQuestion(rcChoice, ref coins);
+}
+
+static void DisplayRomanCultureQuestion(int rcChoice, ref int coins)
+{
+    string answer;
+    bool isRight = false; 
+    if (rcChoice == 1)
+    {
+        System.Console.WriteLine("What is the necklace that young boys in Rome would wear called?");
+        answer = Console.ReadLine().ToUpper();
+        isRight = (answer == "BULLA");
+        if (isRight == true)
+        {
+            coins += 1;
+            System.Console.WriteLine($"Correct! You now have {coins} coins!");
+        }
+        else
+        {
+            coins = coins;
+            System.Console.WriteLine("Wrong.");
+        }
+    }
+    else if (rcChoice == 2)
+    {
+        System.Console.WriteLine("What is the cloak/scarf women in Rome would wear called?");
+        answer = Console.ReadLine().ToUpper();
+        isRight = (answer == "PALLA");
+        if (isRight == true)
+        {
+            coins += 2;
+            System.Console.WriteLine($"Correct! You now have {coins} coins!");
+        }
+        else
+        {
+            coins = coins;
+            System.Console.WriteLine("Wrong.");
+        }
+    }
+    else if (rcChoice == 3)
+    {
+        System.Console.WriteLine("What was a Roman dinning room called?");
+        answer = Console.ReadLine().ToUpper();
+        isRight = (answer == "TRICLINIUM");
+        if (isRight == true)
+        {
+            coins += 3;
+            System.Console.WriteLine($"Correct! You now have {coins} coins!");
+        }
+        else
+        {
+            coins = coins;
+            System.Console.WriteLine("Wrong.");
+        }
+    }
+    else if (rcChoice == 4)
+    {
+        System.Console.WriteLine("What was the Roman version of Valentines's Day called? Hint: It is Febuary 15th.");
+        answer = Console.ReadLine().ToUpper();
+        isRight = (answer == "LUPERCALIA");
+        if (isRight == true)
+        {
+            coins += 4;
+            System.Console.WriteLine($"Correct! You now have {coins} coins!");
+        }
+        else
+        {
+            coins = coins;
+            System.Console.WriteLine("Wrong.");
+        }
+    }
+    else if (rcChoice == 5)
+    {
+        System.Console.WriteLine("What was the name of the the most annoying character in my Latin textbook, Ecce Romani?");
+        answer = Console.ReadLine().ToUpper();
+        isRight = (answer == "SEXTUS");
+        if (isRight == true)
+        {
+            coins += 5;
+            System.Console.WriteLine($"Correct! You now have {coins} coins!");
+        }
+        else
+        {
+            coins = coins;
+            System.Console.WriteLine("Wrong.");
+        }
+    }
 }
 
 static void Etymology(ref int coins)
