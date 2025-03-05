@@ -324,8 +324,6 @@ static void Fishing(ref int coins, ref int points)
     System.Console.WriteLine($"You now have {points} points! You now need {15-points} points to win.");
     Pause();
     return;
-    // chosenBait = BuyBaitMenu(ref coins);
-    // answer = BuyingBaitLogic(ref coins, chosenBait);
     
 }
 
@@ -437,7 +435,6 @@ static string BaitToFish(int chosenBait, string fish, ref int points)
         if(fish == "bass")
         {
             passOrFail = "Pass";
-            //System.Console.WriteLine($"You've caught a bass and gained 4 points. You now have {points}");
             points += 4;
         } else
         {
@@ -451,7 +448,6 @@ if(chosenBait == 2)
         if(fish == "shark")
         {
             passOrFail = "Pass";
-            //System.Console.WriteLine($"You've caught a shark and gained 6 points. You now have {points}");
             points += 6;
         } else
         {
@@ -465,7 +461,6 @@ if(chosenBait == 3)
         if(fish == "whale")
         {
             passOrFail = "Pass";
-            //System.Console.WriteLine($"You've caught a shark and gained 10 points. You now have {points}");
             points += 10;
         } else
         {
@@ -482,10 +477,6 @@ static void ViewCoinCount(ref int coins)
     System.Console.WriteLine($"You have {coins} coins available to bet and buy.");
 }
 
-static void UserManual()
-{
-    System.Console.WriteLine("In User Manual");
-}
 
 static void InvalidInput()
 {
@@ -497,6 +488,40 @@ static void Pause()
     System.Console.WriteLine("\nPress any key to continue...");
     Console.ReadKey();
     Console.Clear();
+}
+
+//all extras
+
+static void UserManual()
+{
+    System.Console.WriteLine(@"
+    ======================================================
+    || The object of this game is to win money so that  ||
+    || you can buy bait to go fish and then win points. ||
+    || There are two ways to win money. The first is by ||
+    || playing Old Man's War. To play Old Man's War you ||
+    || must bet coins then you and the old man will be  ||
+    || given a card. The user withhighest card will win,||
+    || but there is a twist. Before the cards are drawn ||
+    || a trump suit is picked and the user with the     ||
+    || trump suit will be the automatic winner of the   ||
+    || game. If you win you will gain double the amount ||
+    || of money you bet. If you lose you will lose the  ||
+    || amount of money you bet. The second way to win   ||
+    || money is my playing Jeopardy. For Jeopardy you   ||
+    || will choose a category and the amount of coins   ||
+    || you would like to play. The amount of coins      ||
+    || corresponds to the difficulty of the questions.  ||
+    || For the Fishing Game you be given the option to  ||
+    || buy bait that will correspond to a specific fish ||
+    || to catch. The fish that you will catch will be   ||
+    || randomized and if the wrong bait is used then    ||
+    || the fish will swim away. If you catch the right  ||
+    || fish you will gain the corresponding points.     ||
+    || Once you reach 15 point you will have won the    ||
+    || game.                                            ||
+    ======================================================
+    ");
 }
 
 static void Jeopardy(ref int coins)
@@ -868,7 +893,7 @@ static void CrossStitch(ref int coins)
     The amount of money will correspond to the difficulty of the question. 
     Select either 1, 2, 3, 4, or 5");
     int csChoice = int.Parse(Console.ReadLine());
-    DisplayCrossStitchQuestion(csChoice, ref coins)
+    DisplayCrossStitchQuestion(csChoice, ref coins);
 }
 
 static void DisplayCrossStitchQuestion(int csChoice, ref int coins)
