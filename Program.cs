@@ -753,6 +753,10 @@ static void DisplayRomanCultureQuestion(int rcChoice, ref int coins)
             System.Console.WriteLine("Wrong.");
         }
     }
+    else
+    {
+        InvalidInput();
+    }
 }
 
 static void Etymology(ref int coins)
@@ -763,6 +767,97 @@ static void Etymology(ref int coins)
     The amount of money will correspond to the difficulty of the question. 
     Select either 1, 2, 3, 4, or 5");
     int eChoice = int.Parse(Console.ReadLine());
+    DisplayEtymologyQuestion(eChoice, ref coins);
+}
+
+static void DisplayEtymologyQuestion(int eChoice, ref int coins)
+{
+    string answer;
+    bool isRight = false; 
+    if (eChoice == 1)
+    {
+        System.Console.WriteLine("What language does the word piano come from?");
+        answer = Console.ReadLine().ToUpper();
+        isRight = (answer == "ITALIAN");
+        if (isRight == true)
+        {
+            coins += 1;
+            System.Console.WriteLine($"Correct! You now have {coins} coins!");
+        }
+        else
+        {
+            coins = coins;
+            System.Console.WriteLine("Wrong.");
+        }
+    }
+    else if (eChoice == 2)
+    {
+        System.Console.WriteLine("The word salary comes from the Latin word salarium. What common substance is this word related to?");
+        answer = Console.ReadLine().ToUpper();
+        isRight = (answer == "SALT");
+        if (isRight == true)
+        {
+            coins += 2;
+            System.Console.WriteLine($"Correct! You now have {coins} coins!");
+        }
+        else
+        {
+            coins = coins;
+            System.Console.WriteLine("Wrong.");
+        }
+    }
+    else if (eChoice == 3)
+    {
+        System.Console.WriteLine("The word robot first appeared in a play in 1920. Which language does it come from?");
+        answer = Console.ReadLine().ToUpper();
+        isRight = (answer == "CZECH");
+        if (isRight == true)
+        {
+            coins += 3;
+            System.Console.WriteLine($"Correct! You now have {coins} coins!");
+        }
+        else
+        {
+            coins = coins;
+            System.Console.WriteLine("Wrong.");
+        }
+    }
+    else if (eChoice == 4)
+    {
+        System.Console.WriteLine("The word quarantine comes from the Italian quaranta giorni, meaning how many days?");
+        answer = Console.ReadLine();
+        isRight = (answer == "40");
+        if (isRight == true)
+        {
+            coins += 4;
+            System.Console.WriteLine($"Correct! You now have {coins} coins!");
+        }
+        else
+        {
+            coins = coins;
+            System.Console.WriteLine("Wrong.");
+        }
+    }
+    else if (eChoice == 5)
+    {
+        System.Console.WriteLine("The word disaster has roots in both Greek and Latin, combining 'dis-' (bad) with a word referring to what?");
+        answer = Console.ReadLine().ToUpper();
+        isRight = (answer == "STARS");
+        if (isRight == true)
+        {
+            coins += 5;
+            System.Console.WriteLine($"Correct! You now have {coins} coins!");
+        }
+        else
+        {
+            coins = coins;
+            System.Console.WriteLine("Wrong.");
+        }
+    }
+    else
+    {
+        InvalidInput();
+    }
 }
 
 static void CrossStitch(ref int coins)

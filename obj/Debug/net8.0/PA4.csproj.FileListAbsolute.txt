@@ -26,3 +26,4 @@ C:\Users\sarah\Documents\MIS_221\PA\PA3\bin\Debug\net8.0\PA4.dll
 C:\Users\sarah\Documents\MIS_221\PA\PA3\bin\Debug\net8.0\PA4.pdb
 C:\Users\sarah\Documents\MIS_221\PA\PA3\obj\Debug\net8.0\PA4.genruntimeconfig.cache
 C:\Users\sarah\Documents\MIS_221\PA\PA3\obj\Debug\net8.0\ref\PA4.dll
+C:\Users\sarah\Documents\MIS_221\PA\PA3\obj\Debug\net8.0\PA4.sourcelink.json
