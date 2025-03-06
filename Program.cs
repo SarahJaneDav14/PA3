@@ -3,16 +3,10 @@
 int coins = 5;
 int menu=Menu();
 int points = 0;
-while(menu != 7 && points != 15 && coins >=0 )
+while(menu != 7 || points == 15)
 {
     Navigation(menu, ref coins, ref points);
     menu = Menu();
-}
-
-if (coins == 0)
-{
-    System.Console.WriteLine("You are out of coins. Please play a game to get more.");
-    Menu();
 }
 
 if (points == 15)
@@ -93,7 +87,34 @@ static void OldMansWar(ref int coins)
     {
         coins = coins;
     }
-    System.Console.WriteLine($"You now have {coins} coins");
+    System.Console.WriteLine($"You now have {coins} coins\t");
+
+    System.Console.WriteLine("Would you like to keep playing?(Yes/No)");
+    string keepPlaying = Console.ReadLine().ToUpper();
+    while (keepPlaying == "YES")
+    {
+        OldMansWarRules();
+        //Pause();
+        bet = HowManyCoinsAvailableToBet(ref coins);
+        status = GetAndCompareCards();
+        if (status == "wins")
+        {
+            coins = coins + bet;
+        }else
+        if (status == "lose")
+        {
+            coins = coins - bet;
+        }
+        else 
+        {
+            coins = coins;
+        }
+        System.Console.WriteLine($"You now have {coins} coins\t");
+
+        System.Console.WriteLine("Would you like to keep playing?(Y/N)");
+        keepPlaying = Console.ReadLine().ToUpper();
+    }
+
     Pause();
 
 }
@@ -102,7 +123,7 @@ static int HowManyCoinsAvailableToBet(ref int coins)
 {
     System.Console.WriteLine($"How many coins would you like to bet? You have {coins} coins available to bet!");
     int bet = int.Parse(Console.ReadLine());
-    while (bet > coins)
+    while (bet > coins || bet <0)
     {
         InvalidInput();
         System.Console.WriteLine($"How many coins would you like to bet? You have {coins} coins available to bet!");
@@ -328,6 +349,33 @@ static void Fishing(ref int coins, ref int points)
     }
     string passOrFail = BaitToFish(chosenBait, fish, ref points);
     System.Console.WriteLine($"You now have {points} points! You now need {15-points} points to win.");
+
+    System.Console.WriteLine("Would you like to keep playing?(Yes/No)");
+    string keepPlaying = Console.ReadLine().ToUpper();
+
+    while (keepPlaying == "YES")
+    {
+        FishingRules();
+        chosenBait = BuyBaitMenu( ref coins);
+        if (chosenBait == 4)
+        {
+            return;
+        }
+        answer = BuyingBaitLogic(ref coins, chosenBait);
+        fish = FishPicker();
+        if (answer != "You have too little money. Try again")
+        {
+            System.Console.WriteLine($" You've caught a {fish}, but hold on it might swim away.");
+        }else 
+        {
+            System.Console.WriteLine("You have too little money. Try again");
+            Pause();
+            return;
+        }
+
+        System.Console.WriteLine("Would you like to keep playing? (Yes/No)");
+        keepPlaying = Console.ReadLine().ToUpper();
+    }
     Pause();
     return;
     
@@ -348,6 +396,7 @@ static void FishingRules()
     || will gain corresponding points           ||   
     ==============================================
     ");
+    Pause();
 }
 
 static string FishPicker()
