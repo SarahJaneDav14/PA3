@@ -309,6 +309,7 @@ static string WinnerPicker(int num, int suite, int num2, int suite2)
 
 static void Fishing(ref int coins, ref int points)
 {
+    FishingRules();
     int chosenBait = BuyBaitMenu( ref coins);
     if (chosenBait == 4)
     {
@@ -330,6 +331,23 @@ static void Fishing(ref int coins, ref int points)
     Pause();
     return;
     
+}
+
+static void FishingRules()
+{
+    System.Console.WriteLine(@"
+    ==============================================
+    || First you will buy bait that will        ||
+    || correspond to a specific fish            ||
+    ||                                          ||
+    || Then you will go fishing                 ||                           
+    ||                                          ||
+    || The fish will populate randomly          ||                          
+    ||                                          ||
+    || If the bait matches with the fish you    ||
+    || will gain corresponding points           ||   
+    ==============================================
+    ");
 }
 
 static string FishPicker()
