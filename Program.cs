@@ -3,7 +3,7 @@
 int coins = 5;
 int menu=Menu();
 int points = 0;
-while(menu != 6 && points != 15 && coins >=0 )
+while(menu != 7 && points != 15 && coins >=0 )
 {
     Navigation(menu, ref coins, ref points);
     menu = Menu();
@@ -33,13 +33,15 @@ static int Menu()
     ||                                 ||
     || Select 2 to fish at the lake    ||
     ||                                 ||
-    || Select 3 to view coin count     ||
+    || Select 3 to play Jeopardy       ||
     ||                                 ||
-    || Select 4 to see user manual     ||
+    || Select 4 to view coin count     ||
     ||                                 ||
-    ||Select 5 to play Jeopardy        ||
+    || Select 5 to view point count    ||
     ||                                 ||
-    || Select 6 to Exit the game       ||
+    || Select 6 to see user manual     ||
+    ||                                 ||
+    || Select 7 to Exit the game       ||
     =====================================
     ");
     return int.Parse(Console.ReadLine());
@@ -56,13 +58,16 @@ static void Navigation(int menu, ref int coins, ref int points)
             Fishing(ref coins, ref points);
             break;
         case 3:
-            ViewCoinCount(ref coins);
+            Jeopardy(ref coins);
             break;
         case 4:
-            UserManual();
+            ViewCoinCount(ref coins);
             break;
-        case 5:
-            Jeopardy(ref coins);
+         case 5:
+            ViewPointCount(ref points);
+            break;
+        case 6:
+            UserManual();
             break;
         default:
             return;
@@ -477,7 +482,6 @@ static void ViewCoinCount(ref int coins)
     System.Console.WriteLine($"You have {coins} coins available to bet and buy.");
 }
 
-
 static void InvalidInput()
 {
     System.Console.WriteLine("Invalid input. Please try again.");
@@ -491,6 +495,11 @@ static void Pause()
 }
 
 //all extras
+
+static void ViewPointCount(ref int points)
+{
+    System.Console.WriteLine($"You currently have {points} points");
+}
 
 static void UserManual()
 {
