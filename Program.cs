@@ -72,7 +72,6 @@ static void Navigation(int menu, ref int coins, ref int points)
 static void OldMansWar(ref int coins)
 {
     OldMansWarRules();
-    //Pause();
     int bet = HowManyCoinsAvailableToBet(ref coins);
     string status = GetAndCompareCards();
     if (status == "wins")
@@ -94,7 +93,6 @@ static void OldMansWar(ref int coins)
     while (keepPlaying == "YES")
     {
         OldMansWarRules();
-        //Pause();
         bet = HowManyCoinsAvailableToBet(ref coins);
         status = GetAndCompareCards();
         if (status == "wins")
@@ -373,6 +371,9 @@ static void Fishing(ref int coins, ref int points)
             return;
         }
 
+        passOrFail = BaitToFish(chosenBait, fish, ref points);
+        System.Console.WriteLine($"You now have {points} points! You now need {15-points} points to win.");
+
         System.Console.WriteLine("Would you like to keep playing? (Yes/No)");
         keepPlaying = Console.ReadLine().ToUpper();
     }
@@ -407,7 +408,7 @@ static string FishPicker()
 
     if( fishing >= 9)
     {
-        fish= "bass";
+        fish= "whale";
     }else 
     if (fishing >= 6)
     {
@@ -605,6 +606,16 @@ static void Jeopardy(ref int coins)
     DisplayJeopardyRules();
     string categoryChoice = DisplayJeopardyMenu();
     JeopardyNavigation(categoryChoice, ref coins);
+    System.Console.WriteLine("Would you like to keep playing?(Yes/No)");
+    string keepPlaying = Console.ReadLine().ToUpper();
+    while (keepPlaying == "YES")
+    {
+        DisplayJeopardyRules();
+        categoryChoice = DisplayJeopardyMenu();
+        JeopardyNavigation(categoryChoice, ref coins);
+        System.Console.WriteLine("Would you like to keep playing?(Yes/No)");
+        keepPlaying = Console.ReadLine().ToUpper();
+    }
 }
 
 static void DisplayJeopardyRules()
@@ -741,7 +752,7 @@ static void DispayPersonalFactQuestion(int pfChoice, ref int coins)
     {
         System.Console.WriteLine("Name every single pet I've ever had in order. Be sure to add commas inbetween the names.");
         answer = Console.ReadLine().ToUpper();
-        isRight = (answer == "HARRIET, SIMON, GEORGE, LUCY, ELI, TABBY");
+        isRight = (answer == "HARRIET, GEORGE, SIMON, LUCY, ELI, TABBY");
         if (isRight == true)
         {
             coins += 5;
