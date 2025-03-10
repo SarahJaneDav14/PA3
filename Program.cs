@@ -3,7 +3,7 @@
 int coins = 5;
 int menu=Menu();
 int points = 0;
-while(menu != 7 || points == 15)
+while(menu != 7 || points >= 15)
 {
     Navigation(menu, ref coins, ref points);
     menu = Menu();
