@@ -109,7 +109,7 @@ static void OldMansWar(ref int coins)
         }
         System.Console.WriteLine($"You now have {coins} coins\t");
 
-        System.Console.WriteLine("Would you like to keep playing?(Y/N)");
+        System.Console.WriteLine("Would you like to keep playing?(Yes/No)");
         keepPlaying = Console.ReadLine().ToUpper();
     }
 
